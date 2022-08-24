@@ -13,6 +13,7 @@
 		B515B3C128B6495B00BB0927 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B515B3BF28B6495B00BB0927 /* Main.storyboard */; };
 		B515B3C328B6495D00BB0927 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B515B3C228B6495D00BB0927 /* Assets.xcassets */; };
 		B515B3C628B6495D00BB0927 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B515B3C428B6495D00BB0927 /* LaunchScreen.storyboard */; };
+		B515B3D128B64B1C00BB0927 /* CreateFilamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B515B3D028B64B1C00BB0927 /* CreateFilamentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		B515B3C228B6495D00BB0927 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B515B3C528B6495D00BB0927 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B515B3C728B6495D00BB0927 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B515B3D028B64B1C00BB0927 /* CreateFilamentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFilamentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,40 @@
 		B515B3B828B6495B00BB0927 /* PrinterCostCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				B515B3CE28B64AC900BB0927 /* Model */,
+				B515B3CF28B64AD600BB0927 /* ViewModel */,
+				B515B3CD28B64AAD00BB0927 /* View */,
 				B515B3B928B6495B00BB0927 /* AppDelegate.swift */,
 				B515B3BB28B6495B00BB0927 /* SceneDelegate.swift */,
-				B515B3BD28B6495B00BB0927 /* ViewController.swift */,
 				B515B3BF28B6495B00BB0927 /* Main.storyboard */,
 				B515B3C228B6495D00BB0927 /* Assets.xcassets */,
 				B515B3C428B6495D00BB0927 /* LaunchScreen.storyboard */,
 				B515B3C728B6495D00BB0927 /* Info.plist */,
 			);
 			path = PrinterCostCalculator;
+			sourceTree = "<group>";
+		};
+		B515B3CD28B64AAD00BB0927 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B515B3D028B64B1C00BB0927 /* CreateFilamentViewController.swift */,
+				B515B3BD28B6495B00BB0927 /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B515B3CE28B64AC900BB0927 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B515B3CF28B64AD600BB0927 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B515B3D128B64B1C00BB0927 /* CreateFilamentViewController.swift in Sources */,
 				B515B3BE28B6495B00BB0927 /* ViewController.swift in Sources */,
 				B515B3BA28B6495B00BB0927 /* AppDelegate.swift in Sources */,
 				B515B3BC28B6495B00BB0927 /* SceneDelegate.swift in Sources */,
