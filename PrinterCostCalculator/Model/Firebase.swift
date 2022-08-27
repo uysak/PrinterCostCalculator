@@ -25,18 +25,6 @@ class Firebase{
         Firestore.firestore().settings = settings
     }
     
-    func SignUp(){
-        
-        
-        //var ref: DocumentReference? = nil
-        
-        
-        var refCustomers = self.db.collection("Users").document(email).collection("Customers")
-        var refAllOrders = self.db.collection("Users").document(email).collection("AllOrders")
-        
-        
-    }
-    
     func saveFilament(var filament : Filament!){
         
         var title = filament.title!
@@ -46,29 +34,35 @@ class Firebase{
         var weight = filament.weight!
         print(title)
         
-        self.db.collection("Users").document(email).collection("Filaments").document(title).setData(
+        self.db.collection("Users").document(email).collection("Filaments").document().setData(
         [
-            "Filament Type: " : filamentType,
-            "Diameter : " : diameter,
-            "Cost: " : cost,
+            "Title" : title,
+            "Filament Type" : filamentType,
+            "Diameter" : diameter,
+            "Cost" : cost,
             "Weight" : weight
         
         ])
     }
+    
+    func takeOrder(var order : Order){
+        var projectName = order.projectName
+        var filamentAmount = order.filamentAmount
+        var markUp = order.markUp
+        var jobTime = order.jobTime
         
-      //  self.db.collection("Users").document(email).collection("Customers").document("test").
-      //  self.db.collection("Users").document(email).collection("Orders").document("test2").delete()
+        self.db.collection("Users").document(email).collection("Orders").document().setData(
         
-  /*      var ref : DocumentReference? = nil
-        ref = self.db.collection("Filaments").addDocument(data: ["first" : "Ada"])
-        { err in
-           if let err = err {
-           print("Error adding document: \(err)")
-           }
-           else{
-               print("Document added with ID: \(ref!.documentID)")
-                }
-        }*/
+                [
+                "Filament Amount" : filamentAmount,
+                "Job Time"   : jobTime,
+                "Mark Up %"  : markUp,
+                "Mark Up TL" : "null yet",
+                "Total Cost" : "null yet"
+                ]
+        )
+    }
+    
 }
 
 

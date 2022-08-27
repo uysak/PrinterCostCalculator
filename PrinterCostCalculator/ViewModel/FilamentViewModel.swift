@@ -9,81 +9,41 @@ import Foundation
 import UIKit
 
 
-class FilamentViewModel{
+class FilamentViewModel : BaseViewModel{
     
     var filament : Filament!
     var firebase : Firebase!
+
     
-    var titleTextField : UITextField!
-    var filamentType : String!
-    var costTextField : UITextField!
-    var weightTextField : UITextField!
-    var filamentDiameter : String!
+    var createFilamentVC = CreateFilamentViewController()
     
-    init() {
-         filament = Filament()
+    override init() {
          firebase = Firebase()
-        
-        
     }
     
    
     
     func SaveFilament(){
-        setDataOnObj(var: filament)
+        setDataOnObj()
         firebase.saveFilament(var : filament)
     }
     
-    func setDataOnObj(var filamentObj : Filament){
+    func setDataOnObj(){
         
-        if checkDataIsString(var: titleTextField) == true{
+        filament = Filament()
+        
+        if checkDataIsString(var: createFilamentVC.titleTextField) == true{
             
-            filamentObj.title = titleTextField.text
+            filament.title = createFilamentVC.titleTextField.text
         }
         
-        if checkDataIsInt(var: costTextField) == true{
-            filamentObj.cost = Int(costTextField.text!)
+        if checkDataIsInt(var: createFilamentVC.costTextField) == true{
+            filament.cost = Int(createFilamentVC.costTextField.text!)
         }
-        if checkDataIsInt(var: weightTextField) == true {
-            filamentObj.weight = Int(weightTextField.text!)
+        if checkDataIsInt(var: createFilamentVC.weightTextField) == true {
+            filament.weight = Int(createFilamentVC.weightTextField.text!)
         }
-        filamentObj.filamentType = filamentType
-        filamentObj.diameter = filamentDiameter
+        filament.filamentType = createFilamentVC.filamentType
+        filament.diameter = createFilamentVC.filamentDiameter
     }
-
-    
-    func checkDataIsString(var textField : UITextField) -> Bool{
-        
-        if textField.text == ""{
-            //createFilamentViewController.alert(var: "Error", var: "\(textField.placeholder) cant to be empty")
-            return false
-        }
-        
-        else{
-            if let text = textField.text as? String  {
-                return true
-            }
-            else{
-                //createFilamentViewController.alert(var: "Error", var: "\(textField.placeholder) must to be String")
-                return false
-            }
-        }
-    }
-    func checkDataIsInt(var textField : UITextField) -> Bool{
-        
-        if textField.text == ""{
-            //createFilamentViewController.alert(var: "Error", var: "\(textField.placeholder) cant to be empty")
-            return false
-        }
-        
-        else{
-            if let text = Int(textField.text!) as? Int{
-                return true
-            }
-            else{
-              //  createFilamentViewController.alert(var: "Error", var: "\(textField.placeholder) must to be Integer")
-                return false
-            }
-        }
-    } 
 }

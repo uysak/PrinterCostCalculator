@@ -7,8 +7,10 @@
 
 import Foundation
 
-class Filament{
+
+struct Filament{
     
+    var id : String!
     var title : String!
     var filamentType : String!
     var diameter : String!

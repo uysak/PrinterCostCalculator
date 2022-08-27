@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B506FB0428B6B38300A67906 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B506FB0328B6B38000A67906 /* GoogleService-Info.plist */; };
+		B5100EE328BACA7400AD784F /* PrinterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5100EE228BACA7400AD784F /* PrinterViewController.swift */; };
 		B515B3BA28B6495B00BB0927 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B515B3B928B6495B00BB0927 /* AppDelegate.swift */; };
 		B515B3BC28B6495B00BB0927 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B515B3BB28B6495B00BB0927 /* SceneDelegate.swift */; };
 		B515B3BE28B6495B00BB0927 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B515B3BD28B6495B00BB0927 /* ViewController.swift */; };
@@ -21,13 +22,22 @@
 		B515B3DD28B66C1500BB0927 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B515B3DC28B66C1500BB0927 /* FirebaseFirestore */; };
 		B515B3DF28B66C1500BB0927 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B515B3DE28B66C1500BB0927 /* FirebaseFirestoreSwift */; };
 		B515B3E128B66C1500BB0927 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B515B3E028B66C1500BB0927 /* FirebaseStorage */; };
+		B528030228B7F6E4004D455A /* TakeOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B528030128B7F6E4004D455A /* TakeOrderViewController.swift */; };
+		B528030428B7FCD4004D455A /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = B528030328B7FCD4004D455A /* Order.swift */; };
+		B528030A28B8060D004D455A /* TakeOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B528030928B8060D004D455A /* TakeOrderViewModel.swift */; };
+		B531B3C228BAB6B600C18C79 /* PrinterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B531B3C128BAB6B600C18C79 /* PrinterViewModel.swift */; };
+		B531B3C428BAB6D200C18C79 /* Printer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B531B3C328BAB6D200C18C79 /* Printer.swift */; };
+		B531B3C628BAB88C00C18C79 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B531B3C528BAB88C00C18C79 /* BaseViewModel.swift */; };
 		B537080E28B79595006B036E /* Filament.swift in Sources */ = {isa = PBXBuildFile; fileRef = B537080D28B79595006B036E /* Filament.swift */; };
 		B537081028B7983C006B036E /* FilamentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B537080F28B7983C006B036E /* FilamentViewModel.swift */; };
+		B579DD6128BA1DE5007A6C7F /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B579DD6028BA1DE5007A6C7F /* DataModel.swift */; };
+		B5C86AA528BA5B6500CCEA9D /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C86AA428BA5B6000CCEA9D /* MainMenuViewController.swift */; };
 		B5DA0CAD28B6A369003FB299 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DA0CAC28B6A369003FB299 /* Firebase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B506FB0328B6B38000A67906 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B5100EE228BACA7400AD784F /* PrinterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterViewController.swift; sourceTree = "<group>"; };
 		B515B3B628B6495B00BB0927 /* PrinterCostCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrinterCostCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B515B3B928B6495B00BB0927 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B515B3BB28B6495B00BB0927 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,8 +47,16 @@
 		B515B3C528B6495D00BB0927 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B515B3C728B6495D00BB0927 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B515B3D028B64B1C00BB0927 /* CreateFilamentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFilamentViewController.swift; sourceTree = "<group>"; };
+		B528030128B7F6E4004D455A /* TakeOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeOrderViewController.swift; sourceTree = "<group>"; };
+		B528030328B7FCD4004D455A /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		B528030928B8060D004D455A /* TakeOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeOrderViewModel.swift; sourceTree = "<group>"; };
+		B531B3C128BAB6B600C18C79 /* PrinterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterViewModel.swift; sourceTree = "<group>"; };
+		B531B3C328BAB6D200C18C79 /* Printer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Printer.swift; sourceTree = "<group>"; };
+		B531B3C528BAB88C00C18C79 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		B537080D28B79595006B036E /* Filament.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filament.swift; sourceTree = "<group>"; };
 		B537080F28B7983C006B036E /* FilamentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilamentViewModel.swift; sourceTree = "<group>"; };
+		B579DD6028BA1DE5007A6C7F /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		B5C86AA428BA5B6000CCEA9D /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		B5DA0CAC28B6A369003FB299 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +116,9 @@
 			children = (
 				B515B3D028B64B1C00BB0927 /* CreateFilamentViewController.swift */,
 				B515B3BD28B6495B00BB0927 /* ViewController.swift */,
+				B528030128B7F6E4004D455A /* TakeOrderViewController.swift */,
+				B5C86AA428BA5B6000CCEA9D /* MainMenuViewController.swift */,
+				B5100EE228BACA7400AD784F /* PrinterViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -107,6 +128,9 @@
 			children = (
 				B5DA0CAC28B6A369003FB299 /* Firebase.swift */,
 				B537080D28B79595006B036E /* Filament.swift */,
+				B528030328B7FCD4004D455A /* Order.swift */,
+				B579DD6028BA1DE5007A6C7F /* DataModel.swift */,
+				B531B3C328BAB6D200C18C79 /* Printer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -115,6 +139,9 @@
 			isa = PBXGroup;
 			children = (
 				B537080F28B7983C006B036E /* FilamentViewModel.swift */,
+				B528030928B8060D004D455A /* TakeOrderViewModel.swift */,
+				B531B3C128BAB6B600C18C79 /* PrinterViewModel.swift */,
+				B531B3C528BAB88C00C18C79 /* BaseViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -209,10 +236,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5C86AA528BA5B6500CCEA9D /* MainMenuViewController.swift in Sources */,
+				B528030A28B8060D004D455A /* TakeOrderViewModel.swift in Sources */,
+				B528030228B7F6E4004D455A /* TakeOrderViewController.swift in Sources */,
+				B579DD6128BA1DE5007A6C7F /* DataModel.swift in Sources */,
 				B5DA0CAD28B6A369003FB299 /* Firebase.swift in Sources */,
+				B531B3C228BAB6B600C18C79 /* PrinterViewModel.swift in Sources */,
+				B531B3C428BAB6D200C18C79 /* Printer.swift in Sources */,
 				B537080E28B79595006B036E /* Filament.swift in Sources */,
+				B528030428B7FCD4004D455A /* Order.swift in Sources */,
+				B5100EE328BACA7400AD784F /* PrinterViewController.swift in Sources */,
 				B515B3D128B64B1C00BB0927 /* CreateFilamentViewController.swift in Sources */,
 				B537081028B7983C006B036E /* FilamentViewModel.swift in Sources */,
+				B531B3C628BAB88C00C18C79 /* BaseViewModel.swift in Sources */,
 				B515B3BE28B6495B00BB0927 /* ViewController.swift in Sources */,
 				B515B3BA28B6495B00BB0927 /* AppDelegate.swift in Sources */,
 				B515B3BC28B6495B00BB0927 /* SceneDelegate.swift in Sources */,

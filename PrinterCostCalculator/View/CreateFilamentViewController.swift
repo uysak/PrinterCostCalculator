@@ -59,6 +59,7 @@ class CreateFilamentViewController: UIViewController {
         alert.addAction(okButton)
         self.present(alert, animated: true)
     }
+    
     @IBAction func saveButtonClicked(_ sender: Any) {
         filamentViewModel.weightTextField = weightTextField
         filamentViewModel.costTextField = costTextField
