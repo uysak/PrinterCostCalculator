@@ -14,12 +14,18 @@ class TakeOrderViewController: UIViewController {
     @IBOutlet weak var markUpTextField: UITextField!
     @IBOutlet weak var jobTimeTextField: UITextField!
     @IBOutlet weak var savedFilamentButton: UIButton!
+    @IBOutlet weak var savedPrinterButton: UIButton!
+    
+    @IBOutlet weak var infoView: UIView!
+    @IBOutlet weak var infoText: UILabel!
+    
     
     var takeOrderViewModel = TakeOrderViewModel()
     
-    var filamentList : [UIAction] = []
+    static var instance : TakeOrderViewController!
     
-    var dataModel : DataModel!
+    var filamentList : [UIAction] = []
+    var printerList : [UIAction] = []
     
     let optionClosure =  { (action : UIAction  )
         in
@@ -28,37 +34,58 @@ class TakeOrderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        TakeOrderViewController.instance = self
         takeOrderViewModel = TakeOrderViewModel()
-        //filamentList = []
         setSavedFilamentButton()
+        setSavedPrinterButton()
+    }
+    @IBAction func filamentInfoButtonClicked(_ sender: Any) {
+        infoView.isHidden = false
+        var str = "test 1 \n " + "test2 \n "
+        infoText.text = str
+        
+        
+        
     }
     
     @IBAction func chooseFilamentClicked(_ sender: Any) {
     }
     
     @IBAction func confirmOrderButtonClicked(_ sender: Any) {
-        takeOrderViewModel.jobTime = jobTimeTextField
-        takeOrderViewModel.projectName = projectNameTextField
-        takeOrderViewModel.filamentAmount = filamentAmountTextField
-        takeOrderViewModel.markUp = markUpTextField
-        
         takeOrderViewModel.takeOrder()
-        
     }
     
     func setSavedFilamentButton(){
         
-        print("on db: \(dataModel.filamentList)")
-        print("on class: \(filamentList)")
+        if(DataModel.instance.filamentList.count == 0){
+            return
+        }
+
         var index = 0
-        filamentList = Array(repeating: UIAction(title: "",state: .on,handler: optionClosure), count: dataModel.filamentList.count)
+        filamentList = Array(repeating: UIAction(title: "",state: .on,handler: optionClosure), count: DataModel.instance.filamentList.count)
         
-        for filament in dataModel.filamentList{
+        for filament in DataModel.instance.filamentList{
             filamentList[index] = UIAction(title: filament.title,state: .on,handler : optionClosure)
             index += 1
             
         }
         savedFilamentButton.menu = UIMenu(  children: filamentList)
+        
+    }
+    
+    func setSavedPrinterButton(){
+
+        if(DataModel.instance.printerList.count == 0){
+            return
+        }
+        var index = 0
+        printerList = Array(repeating: UIAction(title: "",state: .on,handler: optionClosure), count: DataModel.instance.printerList.count)
+        
+        for printer in DataModel.instance.printerList{
+            printerList[index] = UIAction(title: printer.title,state: .on,handler : optionClosure)
+            index += 1
+        }
+        savedPrinterButton.menu = UIMenu(  children: printerList)
         
     }
 }

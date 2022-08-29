@@ -8,12 +8,12 @@
 import UIKit
 
 class MainMenuViewController: UIViewController {
-
-    var dataModel = DataModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataModel.getFilaments()
+        var dataModel = DataModel()
+        //DataModel.instance.getFilaments()
+        //DataModel.instance.getPrinters()
     }
     
     @IBAction func addFilamentButtonClicked(_ sender: Any) {
@@ -21,19 +21,13 @@ class MainMenuViewController: UIViewController {
         performSegue(withIdentifier: "toFilamentVC", sender: nil)
         
     }
+    @IBAction func addPrinterButtonClicked(_ sender: Any) {
+        performSegue(withIdentifier: "toPrinterVC", sender: nil)
+        
+    }
     
     @IBAction func takeOrderButtonClicked(_ sender: Any) {
-        print("aa \(dataModel.filamentList)")
         performSegue(withIdentifier: "toTakeOrderVC", sender: nil)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toTakeOrderVC"{
-            var destination = segue.destination as! TakeOrderViewController
-            destination.dataModel = self.dataModel
-        }
-        
-    }
-
-
 }

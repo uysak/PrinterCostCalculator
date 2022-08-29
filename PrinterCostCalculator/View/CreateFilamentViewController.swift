@@ -19,10 +19,13 @@ class CreateFilamentViewController: UIViewController {
     var filamentDiameter : String!
     var filamentType : String!
     
+    static var instance : CreateFilamentViewController!
+    
     var filamentViewModel = FilamentViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        CreateFilamentViewController.instance = self
         setFilamentButton()
         setDiameterButton()
     }
@@ -61,13 +64,8 @@ class CreateFilamentViewController: UIViewController {
     }
     
     @IBAction func saveButtonClicked(_ sender: Any) {
-        filamentViewModel.weightTextField = weightTextField
-        filamentViewModel.costTextField = costTextField
-        filamentViewModel.titleTextField = titleTextField
-        
-        filamentViewModel.filamentType = chooseFilament.title(for: UIControl.State.selected)
-        filamentViewModel.filamentDiameter = chooseDiameter.title(for: .selected)
-        
+
         filamentViewModel.SaveFilament()
+        
     }
 }

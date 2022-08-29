@@ -31,6 +31,7 @@
 		B537080E28B79595006B036E /* Filament.swift in Sources */ = {isa = PBXBuildFile; fileRef = B537080D28B79595006B036E /* Filament.swift */; };
 		B537081028B7983C006B036E /* FilamentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B537080F28B7983C006B036E /* FilamentViewModel.swift */; };
 		B579DD6128BA1DE5007A6C7F /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B579DD6028BA1DE5007A6C7F /* DataModel.swift */; };
+		B5AE8F1128BBE90C005663DA /* InfoPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8F1028BBE90C005663DA /* InfoPopUpViewController.swift */; };
 		B5C86AA528BA5B6500CCEA9D /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C86AA428BA5B6000CCEA9D /* MainMenuViewController.swift */; };
 		B5DA0CAD28B6A369003FB299 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DA0CAC28B6A369003FB299 /* Firebase.swift */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,7 @@
 		B537080D28B79595006B036E /* Filament.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filament.swift; sourceTree = "<group>"; };
 		B537080F28B7983C006B036E /* FilamentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilamentViewModel.swift; sourceTree = "<group>"; };
 		B579DD6028BA1DE5007A6C7F /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		B5AE8F1028BBE90C005663DA /* InfoPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPopUpViewController.swift; sourceTree = "<group>"; };
 		B5C86AA428BA5B6000CCEA9D /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		B5DA0CAC28B6A369003FB299 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +121,7 @@
 				B528030128B7F6E4004D455A /* TakeOrderViewController.swift */,
 				B5C86AA428BA5B6000CCEA9D /* MainMenuViewController.swift */,
 				B5100EE228BACA7400AD784F /* PrinterViewController.swift */,
+				B5AE8F1028BBE90C005663DA /* InfoPopUpViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				B5100EE328BACA7400AD784F /* PrinterViewController.swift in Sources */,
 				B515B3D128B64B1C00BB0927 /* CreateFilamentViewController.swift in Sources */,
 				B537081028B7983C006B036E /* FilamentViewModel.swift in Sources */,
+				B5AE8F1128BBE90C005663DA /* InfoPopUpViewController.swift in Sources */,
 				B531B3C628BAB88C00C18C79 /* BaseViewModel.swift in Sources */,
 				B515B3BE28B6495B00BB0927 /* ViewController.swift in Sources */,
 				B515B3BA28B6495B00BB0927 /* AppDelegate.swift in Sources */,

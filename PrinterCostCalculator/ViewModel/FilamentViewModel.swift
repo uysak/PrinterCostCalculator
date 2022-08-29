@@ -15,35 +15,31 @@ class FilamentViewModel : BaseViewModel{
     var firebase : Firebase!
 
     
-    var createFilamentVC = CreateFilamentViewController()
-    
     override init() {
          firebase = Firebase()
     }
-    
-   
-    
+
     func SaveFilament(){
         setDataOnObj()
-        firebase.saveFilament(var : filament)
+        DataModel.instance.saveFilament(var : filament)
     }
     
     func setDataOnObj(){
         
         filament = Filament()
         
-        if checkDataIsString(var: createFilamentVC.titleTextField) == true{
+        if checkDataIsString(var: CreateFilamentViewController.instance.titleTextField) == true{
             
-            filament.title = createFilamentVC.titleTextField.text
+            filament.title = CreateFilamentViewController.instance.titleTextField.text
         }
         
-        if checkDataIsInt(var: createFilamentVC.costTextField) == true{
-            filament.cost = Int(createFilamentVC.costTextField.text!)
+        if checkDataIsInt(var: CreateFilamentViewController.instance.costTextField) == true{
+            filament.cost = Int(CreateFilamentViewController.instance.costTextField.text!)
         }
-        if checkDataIsInt(var: createFilamentVC.weightTextField) == true {
-            filament.weight = Int(createFilamentVC.weightTextField.text!)
+        if checkDataIsInt(var: CreateFilamentViewController.instance.weightTextField) == true {
+            filament.weight = Int(CreateFilamentViewController.instance.weightTextField.text!)
         }
-        filament.filamentType = createFilamentVC.filamentType
-        filament.diameter = createFilamentVC.filamentDiameter
+        filament.filamentType = CreateFilamentViewController.instance.chooseFilament.currentTitle
+        filament.diameter = CreateFilamentViewController.instance.chooseDiameter.currentTitle
     }
 }

@@ -13,29 +13,28 @@ import FirebaseFirestore
 
 class TakeOrderViewModel : BaseViewModel{
 
-    var dataModel = DataModel()
     
     var order = Order()
-    var takeOrderVC = TakeOrderViewController()
     
     func takeOrder(){
         setDataOnObject()
-        dataModel.takeOrder(var: order)
+        DataModel.instance.takeOrder(var: order)
     }
     
     func setDataOnObject(){
+
         
-        if ( checkDataIsString(var: takeOrderVC.projectNameTextField) == true){
-            order.projectName = takeOrderVC.projectNameTextField.text
+        if ( checkDataIsString(var: TakeOrderViewController.instance.projectNameTextField) == true){
+            order.projectName = TakeOrderViewController.instance.projectNameTextField.text
         }
-        if (checkDataIsInt(var: takeOrderVC.filamentAmountTextField) == true){
-            order.filamentAmount = Int(takeOrderVC.filamentAmountTextField.text!)
+        if (checkDataIsInt(var: TakeOrderViewController.instance.filamentAmountTextField) == true){
+            order.filamentAmount = Int(TakeOrderViewController.instance.filamentAmountTextField.text!)
         }
-        if (checkDataIsInt(var: takeOrderVC.markUpTextField) == true){
-            order.markUp = Int(takeOrderVC.markUpTextField.text!)
+        if (checkDataIsInt(var: TakeOrderViewController.instance.markUpTextField) == true){
+            order.markUp = Int(TakeOrderViewController.instance.markUpTextField.text!)
         }
-        if(checkDataIsInt(var: takeOrderVC.jobTimeTextField) == true){
-            order.jobTime = Int(takeOrderVC.jobTimeTextField.text!)
+        if(checkDataIsInt(var: TakeOrderViewController.instance.jobTimeTextField) == true){
+            order.jobTime = Int(TakeOrderViewController.instance.jobTimeTextField.text!)
         }
     }
 }
