@@ -18,6 +18,11 @@ class DataModel {
     
     let database = Firestore.firestore()
     
+    var document : DocumentSnapshot!
+    
+    var choosenFilament = Filament()
+    var choosenPrinter = Printer()
+    
     static var instance :  DataModel!
     
     init(){
@@ -39,14 +44,10 @@ class DataModel {
                         self.filamentList = querysnapshot.documents.map({
                             filaments in
                             return Filament(id: filaments.documentID, title: filaments["Title"] as? String, filamentType: filaments["Filament Type"] as? String, diameter: filaments["Diameter"] as? String, cost: filaments["Cost"] as? Int, weight: filaments["Weight"] as? Int)
-                            
                         })
                     }
-                    
-                    
                 }
-                
-                
+                print("tamamlandi")
             }
             else{
                 print("AAAAAAAAAAAAAAAAAA \(err?.localizedDescription)")
@@ -54,7 +55,63 @@ class DataModel {
             
         }
     }
+    func chooseFilament( var index : Int!){
+        
+        let docRef = self.database.collection("Users").document(email).collection("Filaments").document(filamentList[index].id)
     
+        
+        docRef.getDocument { (document, err) in
+            
+                if let document = document, document.exists{
+                    let _data = document.data().map(String.init(describing:)) ?? "nil"
+                    
+                    self.choosenFilament.weight = document.data()!["Weight"] as! Int
+                    self.choosenFilament.cost = document.data()!["Cost"] as! Int
+                    self.choosenFilament.diameter = document.data()!["Diameter"] as! String
+                    self.choosenFilament.filamentType = document.data()!["Filament Type"] as! String
+                    self.choosenFilament.id = document.documentID
+                    self.choosenFilament.title = document.data()!["Title"] as! String
+                    
+                    print(self.choosenFilament.diameter)
+                    
+                    
+                }
+            }
+        
+                
+    }
+    
+    func choosePrinter(var index : Int!){
+        
+        if(printerList.count == 0){
+            return
+        }
+        let docRef = self.database.collection("Users").document(email).collection("Printers").document(printerList[index].id)
+        
+        docRef.getDocument { (document, err) in
+            if let document = document, document.exists{
+                
+                let data = document.data().map(String.init(describing:)) ?? "nil"
+                
+                self.choosenPrinter.id = document.documentID
+                self.choosenPrinter.title = document.data()!["Title"] as! String
+                self.choosenPrinter.brand = document.data()!["Brand"] as! String
+                self.choosenPrinter.costPerHour = document.data()!["Cost Per Hour"] as? Double
+                self.choosenPrinter.dimensionW = document.data()!["Dimension W"] as! Int
+                self.choosenPrinter.dimensionH = document.data()!["Dimension H"] as! Int
+                self.choosenPrinter.dimensionZ = document.data()!["Dimension Z"] as! Int
+                
+            }
+            
+            
+        }
+    }
+        
+    
+                
+                
+            
+        
     func getPrinters(){
         
        
@@ -122,10 +179,11 @@ class DataModel {
                 "Dimension H" : printer.dimensionH,
                 "Dimension W" : printer.dimensionW,
                 "Dimension Z" : printer.dimensionZ,
-                
                 "Cost Per Hour": printer.costPerHour
             ]
         )
         
     }
+    
+    
 }

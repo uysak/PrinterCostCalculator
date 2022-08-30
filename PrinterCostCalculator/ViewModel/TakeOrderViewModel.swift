@@ -16,9 +16,19 @@ class TakeOrderViewModel : BaseViewModel{
     
     var order = Order()
     
+    var choosenFilamentIndex = 0
+    var choosenPrinterIndex = 0
+    
     func takeOrder(){
         setDataOnObject()
         DataModel.instance.takeOrder(var: order)
+    }
+    
+    
+    func getChoosenFilament() -> DocumentSnapshot {
+        
+        DataModel.instance.chooseFilament(var: choosenFilamentIndex)
+        return DataModel.instance.document
     }
     
     func setDataOnObject(){
