@@ -47,4 +47,22 @@ class TakeOrderViewModel : BaseViewModel{
             order.jobTime = Int(TakeOrderViewController.instance.jobTimeTextField.text!)
         }
     }
+    
+    func calculate(){
+        
+        
+        var cost = Double(Double(DataModel.instance.choosenFilament.cost) / Double(DataModel.instance.choosenFilament.weight)) * Double(self.order.filamentAmount)
+        
+        cost = cost + Double(DataModel.instance.choosenPrinter.costPerHour) * Double(self.order.jobTime / 60)
+        
+        
+        var markUp = Double(cost / 100) * Double(self.order.markUp)
+        
+        var price = cost + markUp
+        print(price)
+        
+        
+    }
+    
+    
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 import Firebase
-
+import FirebaseFirestore
 
 class DataModel {
 
@@ -15,6 +15,7 @@ class DataModel {
     
     var filamentList = [Filament]()
     var printerList = [Printer]()
+    
     
     let database = Firestore.firestore()
     
@@ -96,7 +97,8 @@ class DataModel {
                 self.choosenPrinter.id = document.documentID
                 self.choosenPrinter.title = document.data()!["Title"] as! String
                 self.choosenPrinter.brand = document.data()!["Brand"] as! String
-                self.choosenPrinter.costPerHour = document.data()!["Cost Per Hour"] as? Double
+                self.choosenPrinter.model = document.data()!["Model"] as! String
+                self.choosenPrinter.costPerHour = 2 as! Int
                 self.choosenPrinter.dimensionW = document.data()!["Dimension W"] as! Int
                 self.choosenPrinter.dimensionH = document.data()!["Dimension H"] as! Int
                 self.choosenPrinter.dimensionZ = document.data()!["Dimension Z"] as! Int
@@ -107,10 +109,6 @@ class DataModel {
         }
     }
         
-    
-                
-                
-            
         
     func getPrinters(){
         
@@ -124,7 +122,7 @@ class DataModel {
                     DispatchQueue.main.async {
                         self.printerList = querysnapshot.documents.map({
                             printers in
-                            return Printer(title: printers["Title"] as! String, id: printers.documentID as! String, brand: printers["Brand"] as! String, model: printers["Model"] as! String, dimensionH: printers["Dimension H"] as! Int, dimensionW: printers["Dimension W"] as! Int, dimensionZ: printers["Dimension Z"] as! Int, costPerHour: printers["Cost Per Hour"] as? Double)
+                            return Printer(title: printers["Title"] as? String, id: printers.documentID as! String, brand: printers["Brand"] as! String, model: printers["Model"] as! String, dimensionH: printers["Dimension H"] as! Int, dimensionW: printers["Dimension W"] as! Int, dimensionZ: printers["Dimension Z"] as! Int, costPerHour: printers["Cost Per Hour"] as? Int )
                             
                         })
                     }
@@ -135,7 +133,7 @@ class DataModel {
                 
             }
             else{
-                print("AAAAAAAAAAAAAAAAAA \(err?.localizedDescription)")
+                print("Err \(err?.localizedDescription)")
             }
             
         }

@@ -16,6 +16,6 @@ struct Printer{
     var dimensionH : Int!
     var dimensionW : Int!
     var dimensionZ : Int!
-    var costPerHour : Double!
+    var costPerHour : Int!
 
 }

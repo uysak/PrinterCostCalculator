@@ -66,6 +66,12 @@ class CreateFilamentViewController: UIViewController {
     @IBAction func saveButtonClicked(_ sender: Any) {
 
         filamentViewModel.SaveFilament()
-        
+        clearTextFields()
+    }
+    
+    func clearTextFields(){
+        costTextField.text = ""
+        titleTextField.text = ""
+        weightTextField.text = ""
     }
 }

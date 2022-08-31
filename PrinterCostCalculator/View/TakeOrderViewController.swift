@@ -47,8 +47,8 @@ class TakeOrderViewController: UIViewController {
         super.viewDidLoad()
         
         DispatchQueue.main.async(){
-         //   DataModel.instance.getPrinters()
-          //  DataModel.instance.getFilaments()
+            DataModel.instance.getPrinters()
+            DataModel.instance.getFilaments()
         }
         
         TakeOrderViewController.instance = self
@@ -87,8 +87,9 @@ class TakeOrderViewController: UIViewController {
         
         infoLabel1.text = "Title: \(DataModel.instance.choosenPrinter.title!)"
         infoLabel2.text = "Brand: \(DataModel.instance.choosenPrinter.brand!)"
-        infoLabel3.text = "Model: \(DataModel.instance.choosenPrinter.model)"
-        infoLabel4.text = "Cost Per Hour: \(DataModel.instance.choosenPrinter.costPerHour)"
+        infoLabel3.text = "Model: \(DataModel.instance.choosenPrinter.model!)"
+        infoLabel4.text = "Cost Per Hour: \(DataModel.instance.choosenPrinter.costPerHour!)"
+        infoLabel5.text = "Dimensions: \(DataModel.instance.choosenPrinter.dimensionW!) x \(DataModel.instance.choosenPrinter.dimensionZ!) x \(DataModel.instance.choosenPrinter.dimensionH!)"
         
    /*     infoLabel5.text = """
                           Dimensions (W x H x Z): \(DataModel.instance.choosenPrinter.dimensionW) x \(DataModel.instance.choosenPrinter.dimensionH) x
@@ -99,6 +100,10 @@ class TakeOrderViewController: UIViewController {
     
     @IBAction func confirmOrderButtonClicked(_ sender: Any) {
         takeOrderViewModel.takeOrder()
+        
+        takeOrderViewModel.calculate()
+        clearTextFields()
+        
     }
     
     func setSavedFilamentButton(){
@@ -151,5 +156,12 @@ class TakeOrderViewController: UIViewController {
         }
         savedPrinterButton.menu = UIMenu(  children: printerList)
         
+    }
+    
+    func clearTextFields(){
+        markUpTextField.text = ""
+        jobTimeTextField.text = ""
+        projectNameTextField.text = ""
+        filamentAmountTextField.text = ""
     }
 }
