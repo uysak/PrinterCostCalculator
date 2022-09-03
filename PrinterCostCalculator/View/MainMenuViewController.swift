@@ -11,9 +11,7 @@ class MainMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var dataModel = DataModel()
-        //DataModel.instance.getFilaments()
-        //DataModel.instance.getPrinters()
+      
     }
     
     @IBAction func addFilamentButtonClicked(_ sender: Any) {

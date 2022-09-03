@@ -19,6 +19,10 @@ class TakeOrderViewModel : BaseViewModel{
     var choosenFilamentIndex = 0
     var choosenPrinterIndex = 0
     
+    var cost : Double!
+    var markUp : Double!
+    var price : Double!
+    
     func takeOrder(){
         setDataOnObject()
         DataModel.instance.takeOrder(var: order)
@@ -51,14 +55,14 @@ class TakeOrderViewModel : BaseViewModel{
     func calculate(){
         
         
-        var cost = Double(Double(DataModel.instance.choosenFilament.cost) / Double(DataModel.instance.choosenFilament.weight)) * Double(self.order.filamentAmount)
+        cost = Double(Double(DataModel.instance.choosenFilament.cost) / Double(DataModel.instance.choosenFilament.weight)) * Double(self.order.filamentAmount) 
         
         cost = cost + Double(DataModel.instance.choosenPrinter.costPerHour) * Double(self.order.jobTime / 60)
         
         
-        var markUp = Double(cost / 100) * Double(self.order.markUp)
+        markUp = Double(cost / 100) * Double(self.order.markUp)
         
-        var price = cost + markUp
+        price = cost + markUp
         print(price)
         
         

@@ -138,6 +138,50 @@ class DataModel {
             
         }
     }
+    func checkLogin(var user : User) -> Bool{
+        var check = false
+        let docRef = self.database.collection("Users").document(user.email)
+        
+        docRef.getDocument { querysnapshot, err in
+            
+            if let querysnapshot = querysnapshot{
+                print("aaa \(querysnapshot.documentID)")
+                
+                
+                /// email check
+                if querysnapshot.documentID == user.email{
+                    print("mail doğru")
+                    docRef.getDocument { snapshot, err in
+                    /// password check
+                        
+                        if let snapshot = snapshot{
+                            print(snapshot.get("password"))
+                            if let passw = snapshot.get("password") as? String{
+                            
+                                if passw == user.password!{
+                                    print("giris")
+                                    ViewController.instance.loginSuccessful()
+                                    check = true
+                                }
+                                else{
+                                    ViewController.instance.alert(var: "Error", var: "Wrong Password")
+                                    check = false
+                                }
+                            }
+                        }
+                    }
+                }
+                else{
+                    ViewController.instance.alert(var: "Error", var: "No registered user found with this email")
+                    check = false
+                }
+                
+            }
+        }
+        print(check)
+        return check
+    }
+    
     
         func saveFilament(var filament : Filament){
                 
@@ -182,6 +226,8 @@ class DataModel {
         )
         
     }
+    
+
     
     
 }

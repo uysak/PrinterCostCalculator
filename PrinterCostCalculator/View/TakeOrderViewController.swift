@@ -67,6 +67,12 @@ class TakeOrderViewController: UIViewController {
     
     @IBAction func okButtonClicked(_ sender: Any) {
         infoView.isHidden = true
+        infoLabel1.text = ""
+        infoLabel2.text = ""
+        infoLabel3.text = ""
+        infoLabel4.text = ""
+        infoLabel5.text = ""
+        infoLabel6.text = ""
     }
     @IBAction func choosePrinterButtonClicked(_ sender: Any) {
         
@@ -102,6 +108,15 @@ class TakeOrderViewController: UIViewController {
         takeOrderViewModel.takeOrder()
         
         takeOrderViewModel.calculate()
+        
+        infoView.isHidden = false
+        
+        infoLabel1.text = "Cost: \(takeOrderViewModel.cost!)"
+        infoLabel2.text = "Mark Up: \(takeOrderViewModel.markUp!)"
+        infoLabel3.text = "----------------"
+        infoLabel4.text = "Total Price: \(takeOrderViewModel.price!)"
+        
+        
         clearTextFields()
         
     }
