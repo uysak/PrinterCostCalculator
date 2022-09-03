@@ -62,7 +62,7 @@ class TakeOrderViewController: UIViewController {
         
         DataModel.instance.chooseFilament(var: takeOrderViewModel.choosenFilamentIndex)
         DataModel.instance.choosePrinter(var: takeOrderViewModel.choosenPrinterIndex)
-        
+          
     }
     
     @IBAction func okButtonClicked(_ sender: Any) {
@@ -115,7 +115,7 @@ class TakeOrderViewController: UIViewController {
         infoLabel2.text = "Mark Up: \(takeOrderViewModel.markUp!)"
         infoLabel3.text = "----------------"
         infoLabel4.text = "Total Price: \(takeOrderViewModel.price!)"
-        
+        infoLabel5.text = ""
         
         clearTextFields()
         
